@@ -1,4 +1,4 @@
-import { Component, jsx, render } from 'Fiber';
+import Fiber, { Component, render } from 'Fiber';
 
 class App extends Component {
   componentWillMount() {
