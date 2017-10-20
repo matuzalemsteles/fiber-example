@@ -16,12 +16,19 @@ class App extends Component {
 
 class Doc extends Component {
   componentWillMount() {
-    console.log(this.props.foo);
+    this.oi = this.props.foo;
+  }
+  
+  teste(){
+    console.log(this.oi)
   }
 
   render() {
     return (
-      <p>Document</p>
+        <div>
+            <p>nevinha</p>
+	        <p onClick={this.teste}>Document</p>
+	  </div>
     );
   }
 }
