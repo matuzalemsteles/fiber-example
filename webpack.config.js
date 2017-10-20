@@ -18,7 +18,7 @@ module.exports = {
 					presets: ['babel-preset-env'],
 					plugins: [
             ['transform-react-jsx', {
-              "pragma": "jsx"
+              "pragma": "Fiber.createElement"
             }]
           ]
 				}
