@@ -1,42 +1,43 @@
 import Fiber, { Component, render } from 'Fiber';
 
 class App extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      count: 0
+    }
+  }
+
+  increment() {
+    this.setState({
+      count: this.state.count + 1
+    });
+
+    console.log(this.state);
+  }
+
+  decrement() {
+    this.setState({
+      count: this.state.count - 1
+    });
+
+    console.log(this.state);
   }
 
   render() {
     return (
-      <div>
-        <div id="app">Hello World!</div>
-        <Doc foo={true} />
+      <div id="app">
+        <p>Count: {this.state.count}</p>
+        <Button onClick={this.increment.bind(this)} value="Increment" />
+        <Button onClick={this.decrement.bind(this)} value="Decrement" />
       </div>
     );
   }
 }
 
-class Doc extends Component {
-  componentWillMount() {
-    this.oi = this.props.foo;
-  }
-  
-  teste(){
-    console.log(this.oi)
-  }
-
-  render() {
-    return (
-        <div>
-            <p>nevinha</p>
-	        <p onClick={this.teste}>Document</p>
-	  </div>
-    );
-  }
-}
-
-const Store = () => {
-  return (
-    <div>Hello</div>
-  );
+const Button = (props) => {
+  return <button onClick={props.onClick}>{props.value}</button>;
 }
 
 render(<App />, document.getElementById('root'));
